@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>雅思分数换算工具</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="hero">
+        <p class="eyebrow">IELTS Score Converter</p>
+        <h1>雅思分数换算工具</h1>
+        <p class="hero-copy">
+          同时支持雅思与托福、新托福、四六级的对照换算，也支持内部 60 分钟入班测试分数换算为参考雅思分数。
+        </p>
+      </section>
+
+      <section class="tool-grid" aria-label="分数换算工具">
+        <article class="card converter-card">
+          <div class="card-heading">
+            <span class="step-badge">01</span>
+            <div>
+              <h2>其他考试 ↔ 雅思</h2>
+              <p>输入任意考试分数，自动定位对应雅思分数段。</p>
+            </div>
+          </div>
+
+          <form id="examForm" class="form-panel">
+            <label for="examType">考试类型</label>
+            <select id="examType" name="examType">
+              <option value="ielts">雅思（满分 9 分）</option>
+              <option value="oldToefl">老托福（满分 120 分）</option>
+              <option value="newToefl">新托福（满分 6 分）</option>
+              <option value="cet4">英语四级 CET-4（满分 710 分）</option>
+              <option value="cet6">英语六级 CET-6（满分 710 分）</option>
+            </select>
+
+            <label for="examScore">分数</label>
+            <div class="input-row">
+              <input id="examScore" name="examScore" type="number" step="0.5" min="0" placeholder="例如：5 或 488" />
+              <button type="submit">开始换算</button>
+            </div>
+          </form>
+
+          <div id="examResult" class="result-panel" aria-live="polite">
+            请选择考试类型并输入分数。
+          </div>
+        </article>
+
+        <article class="card converter-card">
+          <div class="card-heading">
+            <span class="step-badge">02</span>
+            <div>
+              <h2>内部测试 → 雅思</h2>
+              <p>适用于 60 分钟入班测试分数，输出参考雅思等级。</p>
+            </div>
+          </div>
+
+          <form id="placementForm" class="form-panel">
+            <label for="placementScore">内部测试分数（0–60）</label>
+            <div class="input-row">
+              <input id="placementScore" name="placementScore" type="number" min="0" max="60" step="1" placeholder="例如：37" />
+              <button type="submit">换算</button>
+            </div>
+          </form>
+
+          <div id="placementResult" class="result-panel" aria-live="polite">
+            请输入内部测试分数。
+          </div>
+        </article>
+      </section>
+
+      <section class="tables-section">
+        <article class="card">
+          <div class="section-title">
+            <h2>其他考试分数对照表</h2>
+            <p>点击表格中的任意行，可快速查看完整换算结果。</p>
+          </div>
+          <div class="table-wrap">
+            <table id="examTable">
+              <thead>
+                <tr>
+                  <th>雅思<br />满分 9 分</th>
+                  <th>老托福<br />满分 120 分</th>
+                  <th>新托福<br />满分 6 分</th>
+                  <th>英语四级 CET-4<br />满分 710 分</th>
+                  <th>英语六级 CET-6<br />满分 710 分</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="section-title">
+            <h2>内部测试成绩对标</h2>
+            <p>基于 60 分钟入班测试分数，对应参考雅思分数。</p>
+          </div>
+          <div class="table-wrap compact-table">
+            <table id="placementTable">
+              <thead>
+                <tr>
+                  <th>测试分数</th>
+                  <th>参考雅思分数</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
